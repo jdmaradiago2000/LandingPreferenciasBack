@@ -44,27 +44,34 @@ namespace WebApi_LandingPreferencias.Controllers
 
         //}
 
+        //[HttpGet]
+        //[Route("getQuestion/{etapa}")]
+        //public IActionResult getQuestionStage(int etapa)
+        //{
+        //    AppResponse appResponse = new AppResponse();
+
+        //    return Ok(new Questions(Request.HttpContext, config).GetQuestionStage(etapa));
+
+        //}
+
         [HttpGet]
-        [Route("getQuestion/{etapa}")]
-        public IActionResult getQuestionStage(int etapa)
+        [Route("getQuestionUpdated/{datos}")]
+        public IActionResult GetQuestionStageUpdated(string datos)
         {
             AppResponse appResponse = new AppResponse();
 
-            return Ok(new Questions(Request.HttpContext, config).GetQuestionStage(etapa));
-
+            return Ok(new Questions(Request.HttpContext, config).GetQuestionStageUpdated(datos));
         }
 
-
         [HttpGet]
-        [Route("getQuestionPrevious/{codigo_pregunta}")]
-        public IActionResult getQuestionPrevious(int codigo_pregunta)
+        [Route("getQuestionPrevious/{datos}")]
+        public IActionResult getQuestionPrevious(string datos)
         {
             AppResponse appResponse = new AppResponse();
 
-            return Ok(new Questions(Request.HttpContext, config).GetQuestionPrevious(codigo_pregunta));
+            return Ok(new Questions(Request.HttpContext, config).GetQuestionPrevious(datos));
 
         }
-
 
         [HttpPost]
         [Route("addRespuestas/{etapa}")]
@@ -113,6 +120,16 @@ namespace WebApi_LandingPreferencias.Controllers
             {
                 return StatusCode(500);
             }
+        }
+
+        [HttpGet]
+        [Route("getLastQuestionPrevious/{datos}")]
+        public IActionResult getLastQuestionPrevious(string datos)
+        {
+            AppResponse appResponse = new AppResponse();
+
+            return Ok(new Questions(Request.HttpContext, config).GetLastQuestionPrevious(datos));
+
         }
 
     }

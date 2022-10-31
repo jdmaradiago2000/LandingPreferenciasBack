@@ -24,5 +24,7 @@ namespace WebApi_LandingPreferencias.Models
         public string respuesta_pregunta_3 { get; set; }
         public string respuesta_pregunta_4 { get; set; }
         public string respuesta_pregunta_5 { get; set; }
+        public string contadora_anterior { get; set; }
+        public string contadora_siguiente { get; set; }
     }
 }
